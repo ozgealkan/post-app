@@ -1,0 +1,32 @@
+<div class="row align-items-center justify-content-center" style="height: 500px;">
+    <div class="col-6">
+        <img src="assets/images/login.jpg" alt="" width="800px" height="700px">
+    </div>
+    <div class="col-6 d-flex align-items-center justify-content-center">
+        <div class="card login-card">
+            <div class="card-header text-white bg-dark">LOGIN</div>
+            <div class="card-body">
+                <form [formGroup]="loginForm" autocomplete="off">
+                    <label class="label-text">Username</label>
+                    <input type="text" class="form-control" formControlName="email">
+                    <ng-container *ngIf="email.invalid && email.touched">
+                        <p *ngIf="email.hasError('required')" class="validation-message">This field is required</p>
+                        <p *ngIf="email.hasError('email')" class="validation-message">This field must be an email</p>
+                    </ng-container>
+                    <label class="label-text">Password</label>
+                    <input type="password" class="form-control" formControlName="password" autocomplete="new-password">
+                    <ng-container *ngIf="password.invalid && (password.touched || password.dirty)">
+                        <p *ngIf="password.hasError('required')" class="validation-message">This field is required</p>
+                        <p *ngIf="password.hasError('passwordStrength')" class="validation-message">At least 1 uppercase,1 lowercase, 1 number, 1 character</p>
+                    </ng-container>
+                </form>
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                    <a class="link mr-4" (click)="openRegister()">Don't have an account? Sign Up</a>
+                    <button class="btn btn-primary is-width-140 ml-4" (click)="login()" [disabled]="loginForm.invalid || isLoading">
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="isLoading"></span>
+                        Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

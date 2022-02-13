@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-md-12 col-xs-12">
+        <div class="card create-card">
+            <div class="card-header">
+                <p class="card-header-title title mb-0" *ngIf="postId">Update Post</p>
+                <p class="card-header-title title mb-0" *ngIf="!postId">Create Post</p>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="postForm">
+                    <label class="label-text">Title :</label>
+                    <input type="text" class="form-control" formControlName="title">
+                    <p *ngIf="postForm.controls.title.invalid && postForm.controls.title.touched"
+                        class="validation-message">This field is required</p>
+                    <label class="label-text">Content :</label>
+                    <textarea name="" id="" cols="30" rows="7" type="text" class="form-control"
+                        formControlName="content"></textarea>
+                    <p *ngIf="postForm.controls.content.invalid && postForm.controls.content.touched"
+                        class="validation-message">This field is required</p>
+                    <label class="label-text">Additional Information :</label>
+                    <textarea name="" id="" cols="30" rows="5" type="text" class="form-control"
+                        formControlName="additionalInfo"></textarea>
+                </form>
+                <div class="d-flex justify-content-end mt-3" *ngIf="!postId">
+                    <button class="btn btn-secondary mr-2" (click)="savePost(0)"
+                        [disabled]="postForm.invalid || isLoading">
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"
+                            *ngIf="isLoading"></span>
+                        Save as Draft</button>
+                    <button class="btn btn-dark" (click)="savePost(1)" [disabled]="postForm.invalid || isLoading">
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"
+                            *ngIf="isLoading"></span>
+                        Publish</button>
+                </div>
+                <div class="d-flex justify-content-end mt-3" *ngIf="postId">
+                    <button class="btn btn-dark" (click)="savePost(1)" [disabled]="postForm.invalid || isLoading">
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"
+                            *ngIf="isLoading"></span>
+                        Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

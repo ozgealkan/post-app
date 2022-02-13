@@ -1,0 +1,46 @@
+<div class="row align-items-center justify-content-center" style="height: 500px;">
+    <div class="col-6">
+        <img src="assets/images/login.jpg" alt="" width="800px" height="700px">
+    </div>
+    <div class="col-6 d-flex align-items-center justify-content-center">
+        <div class="card">
+            <div class="card-header text-white bg-dark">SIGN UP</div>
+            <div class="card-body">
+                <form [formGroup]="registerForm">
+                    <label class="label-text">Name</label>
+                    <input type="text" class="form-control" formControlName="name">
+                    <p *ngIf="name.invalid && name.touched" class="validation-message">This field is required</p>
+                    <label class="label-text">Surname</label>
+                    <input type="text" class="form-control" formControlName="surname">
+                    <p *ngIf="surname.invalid && surname.touched" class="validation-message">This field is required</p>
+                    <label class="label-text">Username</label>
+                    <input type="text" class="form-control" formControlName="email">
+                    <ng-container *ngIf="email.invalid && email.touched">
+                        <p *ngIf="email.hasError('required')" class="validation-message">This
+                            field is required</p>
+                        <p *ngIf="email.hasError('email')" class="validation-message">This
+                            field must be an email</p>
+                    </ng-container>
+                    <label class="label-text">Password</label>
+                    <input type="password" class="form-control" formControlName="password" autocomplete="new-password">
+                    <ng-container *ngIf="password.invalid && password.touched">
+                        <p *ngIf="password.hasError('required')" class="validation-message">This
+                            field is required</p>
+                        <p *ngIf="password.hasError('passwordStrength')" class="validation-message">At least 1
+                            uppercase,1 lowercase, 1 number, 1 character</p>
+                    </ng-container>
+                    <label class="label-text">Confirm Password</label>
+                    <input type="password" class="form-control" formControlName="confirmPassword">
+                    <p *ngIf="password.value !== registerForm.controls.confirmPassword.value"
+                        class="validation-message">Password does not matched</p>
+                </form>
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                    <a class="link mr-4" (click)="openLogin()">Already have an account? Sign In</a>
+                    <button class="btn btn-primary ml-4" (click)="createUser()" [disabled]="registerForm.invalid || isLoading">
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="isLoading"></span>
+                        Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

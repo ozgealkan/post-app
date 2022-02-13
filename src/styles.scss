@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://github.com/FortAwesome/angular-fontawesome');
+.label-text{
+    font-size: 14px;
+    color: #5a5858;
+    margin-top: 10px;
+}
+link{
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+    background-color: transparent;
+}
+.btn.btn-dark{
+  min-width: 115px;
+}
+.btn.btn-outline-primary{
+    min-width: 115px;
+  }
+.btn.btn-outline-danger{
+    min-width: 115px;
+  }
+
+.post-card{
+    border-color: #d3eaeb !important;
+    min-height: 255px;
+    margin-bottom: 30px;
+    border-radius: 8px !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    opacity: 0.8;
+}
+.footer{
+    background-color: #f9f9f9 !important
+}
+a {
+    cursor: pointer !important;
+    font-size: 14px;
+}
+.title{
+    font-size: 18px;
+    font-weight: 500;
+    color: #466d95;
+}
+.validation-message{
+    color: red;
+    font-size: 12px;
+    margin-top: 1px;
+}
+
+.is-width-140 {
+    width: 140px;
+}
