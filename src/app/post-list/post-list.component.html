@@ -6,8 +6,10 @@
                 <div class="card post-card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
-                            <div class="title">
-                                {{post.title}}
+                            <div>
+                                <p class="title mb-0">{{post.title}}</p>
+                                <span class="badge badge-secondary" *ngIf="myPost && !post.published">Draft</span>
+                                <span class="badge badge-success" *ngIf="myPost && post.published">Published</span>
                             </div>
                             <div *ngIf="post.displayCount" class="read-by">
                                 {{post.displayCount}}
@@ -15,7 +17,7 @@
                             </div>
                         </div>
     
-                        <div class="d-flex mt-3">
+                        <div class="d-flex mt-2">
                             {{post.content | slice:0:300}} ...
                         </div>
                     </div>
@@ -25,7 +27,7 @@
                             {{post.username}}
                             ({{post.createdAt | date :'medium'}})
                         </div>
-                        <div class="link"><a [routerLink]="['/home/post-detail', post.id]">Read More<i
+                        <div class="link"><a class="read-more" [routerLink]="['/home/post-detail', post.id]">Read More<i
                                     class="fa fa-arrow-right ml-2"></i></a></div>
                     </div>
                 </div>
@@ -47,7 +49,10 @@
             <img src="assets/images/not-found.png" class="card-img-top" alt="" width="500px" height="400px">
             <div class="card-body text-center">
                 <p class="not-found-text">Post Not Found !</p>
-                <div class="btn btn-outline-primary mb-3">+ Create Post</div>
+                <div>
+                    <a routerLink="/home/create-post" class="btn btn-outline-primary my-2 my-sm-0 mr-2">+
+                        Create Post</a>
+                </div>
             </div>
         </div>
     </div>

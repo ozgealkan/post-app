@@ -71,7 +71,7 @@ export class CreatePostComponent implements OnInit {
 		this.postService.create(data).subscribe(
 			(res) => {
 				this.isLoading = false;
-				this.toaster.success('Post creation is successfull');
+				this.toaster.success('Post creation is successful');
 				this.router.navigate([ '/home/my-posts' ]);
 			},
 			(err) => {
@@ -98,7 +98,7 @@ export class CreatePostComponent implements OnInit {
 		};
 		this.postService.update(data).subscribe(
 			(res) => {
-				this.toaster.success('Post update is successfull');
+				this.toaster.success('Post update is successful');
 				this.router.navigate([ '/home/my-posts' ]);
 				this.isLoading = false;
 			},

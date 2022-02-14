@@ -34,7 +34,6 @@ export class PostListComponent implements OnInit {
 	}
 
 	filterPosts(event): void {
-		console.log('filter', event);
 		let filterItems = this.originalPostList.filter(
 			(item) => this.checkTitleFilter(item, event.title) && this.checkUsernameFilter(item, event.publisher)
 		);

@@ -9,3 +9,8 @@ a{
     color: #666666;
     text-decoration: underline;
 }
+@media only screen and (max-width: 500px) {
+	.register-image {
+		display: none;
+	}
+}

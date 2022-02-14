@@ -15,6 +15,7 @@ export class PostDetailComponent implements OnInit {
 	postItem: Post;
 	initialized = false;
 	isUserPost;
+	isLoading=false;
 
 	constructor(
 		private activatedRoute: ActivatedRoute,
@@ -54,12 +55,15 @@ export class PostDetailComponent implements OnInit {
 	}
 
 	delete(id: number) {
+		this.isLoading=true;
 		this.postService.deletePostById(id).subscribe(
 			() => {
+				this.isLoading=false
 				this.router.navigate([ '/home/my-posts' ]);
 				this.toaster.success('Success');
 			},
 			(err) => {
+				this.isLoading=false
 				this.toaster.error('Delete operation failed', err);
 			}
 		);

@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://github.com/FortAwesome/angular-fontawesome');
+body
+{
+    width:100%;
+}
 .label-text{
     font-size: 14px;
     color: #5a5858;
@@ -20,7 +24,9 @@ link{
 .btn.btn-outline-danger{
     min-width: 115px;
   }
-
+  .btn.btn-outline-success{
+    min-width: 115px;
+  }
 .post-card{
     border-color: #d3eaeb !important;
     min-height: 255px;

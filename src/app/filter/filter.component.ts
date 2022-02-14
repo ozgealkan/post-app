@@ -12,12 +12,15 @@ export class FilterComponent implements OnInit {
 	filterForm = new FormGroup({
 		title: new FormControl(),
 		publisher: new FormControl(),
-		dateSort: new FormControl(),
+		dateSort: new FormControl('ascending'),
 	});
 
-	constructor() {}
+	constructor() {
+	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+
+	}
 
   filter(){
     this.filterEvent.emit(this.filterForm.value);

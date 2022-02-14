@@ -10,3 +10,8 @@ a{
     text-decoration: underline;
 }
 
+@media only screen and (max-width: 500px) {
+	.login-image {
+		display: none;
+	}
+}
