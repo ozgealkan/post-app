@@ -16,7 +16,7 @@ import { dbConfig } from 'src/db.config';
   imports: [
     CommonModule,
     CreatePostRoutingModule,
-    ReactiveFormsModule, // iki tarafta da kullanıyorum common module yapabilirim
+    ReactiveFormsModule,
     NgxIndexedDBModule.forRoot(dbConfig),
     ToastrModule.forRoot()
   ],
